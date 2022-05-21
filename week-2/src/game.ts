@@ -31,8 +31,6 @@ export class Game { // puts entire game into game class
     doneLoading() {
         console.log("all textures loaded!")
 
-        
-
         // background
         this.background = new PIXI.Sprite(this.loader.resources["backgroundTexture"].texture!)
         this.pixi.stage.addChild(this.background)
@@ -72,6 +70,22 @@ export class Game { // puts entire game into game class
         this.anotherFish.x -= 1 // determines movement speed and direction 
         this.bubble.y -= 1.5 // determines movement speed and direction 
         this.anotherBubble.y -= 1 // determines movement speed and direction 
+
+        if (this.fish.x <= -100) {
+            this.fish.x = 900
+        }
+        if (this.anotherFish.x <= -100) {
+            this.anotherFish.x = 900
+        }
+
+        if (this.bubble.y <= 0) {
+            this.bubble.y = 600
+        } 
+
+        if (this.anotherBubble.y <= 0) {
+            this.anotherBubble.y = 600
+        }
+
     }
 }
 
